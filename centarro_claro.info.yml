@@ -18,7 +18,7 @@ regions_hidden:
   - sidebar_first
 libraries:
   - claro/global-styling
-  - centarrro_claro/global-style
+  - centarro_claro/global-style
 libraries-override:
   claro/install-page:
     css:

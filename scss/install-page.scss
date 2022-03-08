@@ -8,38 +8,68 @@
 
 .install-page {
   min-height: 100%;
-  background-color: var(--color-primary-darker);
-  background-repeat: repeat;
-  background-position: left top, 50% 50%; /* LTR */
+  background-color: var(--color-primary);
+  background-image: url('../images/spots.png');
+  background-repeat: no-repeat;
+  background-size: 300px;
+  background-position: right top 20px;
+
   .layout-container {
-    margin: 0 auto !important;
+    margin: 80px auto !important;
+    position: relative;
+
+    .badge-logo {
+      display: block;
+      position: absolute;
+      transform: translate(-50%, 100%);
+      left: 50%;
+      bottom: -50px;
+    }
+
+    @media all and (min-width: 48em) {
+      /* 768px */
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px 60px;
+
+      >header {
+        width: 100%;
+      }
+
+      >main {
+        flex: 1 0 50%;
+      }
+    }
   }
-}
 
+  [dir="rtl"] & {
+    background-position: right top, 50% 50%;
+  }
 
-[dir="rtl"] .install-page {
-  background-position: right top, 50% 50%;
-}
+  // Password widget
+  .password-parent,
+  .confirm-parent {
+    width: auto;
+  }
 
-/**
- * Password widget
- */
-.install-page .password-parent,
-.install-page .confirm-parent {
-  width: auto;
-}
+  .form-item .password-suggestions {
+    float: none;
+    width: auto;
+  }
 
-.install-page .form-item .password-suggestions {
-  float: none;
-  width: auto;
-}
+  table td {
+    word-break: break-all;
+  }
 
-.install-page table td {
-  word-break: break-all;
-}
+  .site-version {
+    vertical-align: super;
+    color: var(--color-warning);
+    font-size: 0.5em;
+  }
 
-.install-page .site-version {
-  vertical-align: super;
-  color: var(--color-warning);
-  font-size: 0.5em;
+  @media all and (min-width: 48em) {
+    .task-list li {
+      padding: 0.5em 1em 0.5em 2em;
+    }
+  }
 }
