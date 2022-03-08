@@ -1,0 +1,22 @@
+//
+// Centarro Claro - Main styles.
+// ----------------------------
+
+// Colors.
+
+// - State.
+$primary:     #4b4e9f;
+$success:     #00746b;
+$info:        #72b5e4;
+$warning:     #f28d4f;
+$danger:      #ff4141;
+
+// Root CSS variables.
+:root {
+  // State colors
+  --color-primary:        #{$primary};
+  --color-success:        #{$success};
+  --color-info:           #{$info};
+  --color-warning:        #{$warning};
+  --color-danger:         #{$danger};
+}

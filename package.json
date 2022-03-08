@@ -1,0 +1,30 @@
+{
+  "name": "centarro_claro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "development": "mix",
+    "watch": "mix watch",
+    "watch-poll": "mix watch -- --watch-options-poll=1000",
+    "hot": "mix watch --hot",
+    "production": "mix --production"
+  },
+  "keywords": [
+    "admin theme",
+    "claro",
+    "drupal",
+    "drupal commerce",
+    "centarro"
+  ],
+  "author": "Centarro",
+  "license": "GPL-2.0",
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "fs-extra": "^10.0.1",
+    "laravel-mix": "^6.0.43",
+    "node-sass": "^7.0.1",
+    "sass": "^1.49.9",
+    "sass-loader": "^12.6.0"
+  }
+}

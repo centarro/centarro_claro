@@ -1,0 +1,5 @@
+global-style:
+  version: VERSION
+  css:
+    theme:
+      css/centarro-claro.theme.css: {}

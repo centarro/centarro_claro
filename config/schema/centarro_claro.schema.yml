@@ -1,0 +1,5 @@
+# Schema for the configuration files of the Centarro Claro theme.
+
+centarro_claro.settings:
+  type: theme_settings
+  label: "Centarro Claro settings"

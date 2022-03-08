@@ -1,0 +1,45 @@
+//
+// Install page.
+// ----------------------------
+//
+//  Unfortunately we have to make our styling quite strong, to override the
+// .maintenance-page styling.
+//
+
+.install-page {
+  min-height: 100%;
+  background-color: var(--color-primary-darker);
+  background-repeat: repeat;
+  background-position: left top, 50% 50%; /* LTR */
+  .layout-container {
+    margin: 0 auto !important;
+  }
+}
+
+
+[dir="rtl"] .install-page {
+  background-position: right top, 50% 50%;
+}
+
+/**
+ * Password widget
+ */
+.install-page .password-parent,
+.install-page .confirm-parent {
+  width: auto;
+}
+
+.install-page .form-item .password-suggestions {
+  float: none;
+  width: auto;
+}
+
+.install-page table td {
+  word-break: break-all;
+}
+
+.install-page .site-version {
+  vertical-align: super;
+  color: var(--color-warning);
+  font-size: 0.5em;
+}
