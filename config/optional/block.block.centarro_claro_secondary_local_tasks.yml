@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  theme:
+    - claro
+    - centarro_claro
+id: centarro_claro_secondary_local_tasks
+theme: centarro_claro
+region: pre_content
+weight: 0
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: "Secondary tabs"
+  provider: core
+  label_display: "0"
+  primary: false
+  secondary: true
+visibility: {}
