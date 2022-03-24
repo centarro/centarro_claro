@@ -50,7 +50,7 @@ h4,.heading-d,
 h5,.heading-e,
 h6,.heading-f {
   color: var(--headings-color);
-  color: var(--headings-fw);
+  font-weight: var(--headings-fw);
 }
 
 .messages__title {
