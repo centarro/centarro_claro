@@ -19,6 +19,7 @@ $font-size-md:   14px;
 
 // Root CSS variables.
 :root {
+  --color-white:         white;
   // State colors
   --color-primary:       #{$primary};
   --color-success:       #{$success};
@@ -29,11 +30,32 @@ $font-size-md:   14px;
   // Font sizes
   --font-size-root:      #{$font-size-root};
   --font-size-md:        #{$font-size-md};
+  // Headings
+  --headings-color:      #{$primary-hover};
+  --headings-fw:         bold;
 }
 
 // html {
 //   font-size: var(--font-size-root);
 // }
+a, .link {
+  color: var(--color-primary);
+}
+
+// Headings
+h1,.heading-a,
+h2,.heading-b,
+h3,.heading-c,
+h4,.heading-d,
+h5,.heading-e,
+h6,.heading-f {
+  color: var(--headings-color);
+  color: var(--headings-fw);
+}
+
+.messages__title {
+  color: var(--color-white);
+}
 
 // Buttons.
 .button--primary {
