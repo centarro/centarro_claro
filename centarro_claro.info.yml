@@ -1,7 +1,7 @@
 name: "Centarro Claro"
 type: theme
 base theme: claro
-description: "Admin theme based on Claro used for Centarro projects.."
+description: "Admin theme based on Claro used for Centarro projects."
 core_version_requirement: ^9
 
 regions:
