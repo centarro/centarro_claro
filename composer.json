@@ -1,0 +1,8 @@
+{
+    "name": "centarro/centarro_claro",
+    "description": "Admin theme based on Claro used for Centarro projects.",
+    "type": "drupal-theme",
+    "license": "GPL-2.0-or-later",
+    "minimum-stability": "dev",
+    "require": {}
+}
