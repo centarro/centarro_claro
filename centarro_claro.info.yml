@@ -20,10 +20,6 @@ libraries:
   - claro/global-styling
   - centarro_claro/global-style
 libraries-override:
-  claro/install-page:
-    css:
-      theme:
-        css/theme/install-page.css: css/install-page.css
   system/base:
     css:
       component:

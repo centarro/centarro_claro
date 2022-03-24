@@ -5,18 +5,46 @@
 // Colors.
 
 // - State.
-$primary:     #4b4e9f;
-$success:     #00746b;
-$info:        #72b5e4;
-$warning:     #f28d4f;
-$danger:      #ff4141;
+$primary:        #4b4e9f;
+$success:        #00746b;
+$info:           #72b5e4;
+$warning:        #f28d4f;
+$danger:         #ff4141;
+
+$primary-hover:  #2c2f70;
+
+// Typography
+$font-size-root: 15px;
+$font-size-md:   14px;
 
 // Root CSS variables.
 :root {
   // State colors
-  --color-primary:        #{$primary};
-  --color-success:        #{$success};
-  --color-info:           #{$info};
-  --color-warning:        #{$warning};
-  --color-danger:         #{$danger};
+  --color-primary:       #{$primary};
+  --color-success:       #{$success};
+  --color-info:          #{$info};
+  --color-warning:       #{$warning};
+  --color-danger:        #{$danger};
+  --color-primary-hover: #{$primary-hover};
+  // Font sizes
+  --font-size-root:      #{$font-size-root};
+  --font-size-md:        #{$font-size-md};
+}
+
+// html {
+//   font-size: var(--font-size-root);
+// }
+
+// Buttons.
+.button--primary {
+  background-color: var(--color-primary);
+  &:hover {
+    background-color: var(--color-primary-hover);
+  }
+}
+
+// Progress bar
+.progress__bar {
+  border: 1px var(--color-warning) solid;
+  background-color: var(--color-warning);
 }

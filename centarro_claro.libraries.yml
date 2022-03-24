@@ -3,3 +3,9 @@ global-style:
   css:
     theme:
       css/centarro-claro.theme.css: {}
+
+maintenance-page:
+  version: VERSION
+  css:
+    theme:
+      css/maintenance-page.css: {}

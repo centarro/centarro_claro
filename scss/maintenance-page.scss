@@ -1,12 +1,10 @@
 //
-// Install page.
+// Install and Maintenance page.
 // ----------------------------
 //
-//  Unfortunately we have to make our styling quite strong, to override the
-// .maintenance-page styling.
-//
 
-.install-page {
+.install-page,
+.maintenance-page {
   min-height: 100%;
   background-color: var(--color-primary);
   background-image: url('../images/spots.png');
@@ -70,6 +68,7 @@
   @media all and (min-width: 48em) {
     .task-list li {
       padding: 0.5em 1em 0.5em 2em;
+      font-size: var(--font-size-md);
     }
   }
 }
