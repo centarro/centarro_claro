@@ -20,3 +20,29 @@ function centarro_claro_preprocess_maintenance_page(&$variables) {
   // Centarro has custom styling for the maintenance page.
   $variables['#attached']['library'][] = 'centarro_claro/maintenance-page';
 }
+
+/**
+ * Implements hook_preprocess_HOOK() for HTML document templates.
+ *
+ */
+function centarro_claro_preprocess_html(&$variables) {
+  // Adjust Root font size
+  $theme_size = theme_get_setting('theme_size');
+  if ($theme_size) {
+    switch ($theme_size) {
+      case 'default':
+        $root_font_size = '16px';
+        break;
+
+      case 'medium':
+        $root_font_size = '15px';
+        break;
+
+      case 'compact':
+        $root_font_size = '14px';
+        break;
+    }
+
+    $variables['html_attributes']->setAttribute('style', "--font-size-root:$root_font_size;");
+  }
+}
