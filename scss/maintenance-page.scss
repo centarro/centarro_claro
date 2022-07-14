@@ -13,8 +13,10 @@
   background-position: right top 20px;
 
   .layout-container {
+    width: 95%!important;
     margin: 80px auto !important;
     position: relative;
+    box-sizing: border-box;
 
     .badge-logo {
       display: block;
@@ -24,19 +26,24 @@
       bottom: -50px;
     }
 
-    @media all and (min-width: 48em) {
-      /* 768px */
+    @media all and (min-width: 62rem) {
       display: grid;
-      grid-template-columns: 35% 1fr;
+      max-width: 68rem!important;
+      grid-template-columns: minmax(300px, auto)  1fr;
       gap: 30px 60px;
 
       >header {
-        width: 100%;
+        width: auto;
         grid-column: span 2;
       }
 
-      >.layout-sidebar-first {
+      >main {
         width: 100%;
+        padding: 0;
+      }
+
+      >.layout-sidebar-first {
+        width: auto;
       }
     }
   }
