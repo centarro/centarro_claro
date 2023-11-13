@@ -112,8 +112,6 @@ libraries-extend:
     - claro/ckeditor-editor
   ckeditor/drupal.ckeditor.admin:
     - claro/ckeditor-admin
-  core/ckeditor:
-    - claro/ckeditor-dialog
   core/drupal.collapse:
     - claro/details-focus
   core/drupal.dialog:
