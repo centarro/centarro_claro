@@ -46,3 +46,36 @@ function centarro_claro_preprocess_html(&$variables) {
     $variables['html_attributes']->setAttribute('style', "--font-size-root:$root_font_size;");
   }
 }
+
+/**
+ * Implements hook_library_info_alter().
+ */
+function centarro_claro_library_info_alter(&$libraries, $extension)
+{
+
+  if ($extension === 'ckeditor' && version_compare(Drupal::VERSION, '10.0.0', '<')) {
+
+    // Extend claro/ckeditor-editor with the ckeditor/drupal.ckeditor library.
+    if (isset($libraries['drupal.ckeditor'])) {
+      $libraries['drupal.ckeditor']['dependencies'][] = 'claro/ckeditor-editor';
+    }
+
+    // Extend ckeditor/drupal.ckeditor.admin with the claro/ckeditor-admin library.
+    if (isset($libraries['drupal.ckeditor.admin'])) {
+      $libraries['drupal.ckeditor.admin']['dependencies'][] = 'claro/ckeditor-admin';
+    }
+
+    // Extend ckeditor/ckeditor with the claro/ckeditor-dialog library.
+    if (isset($libraries['ckeditor'])) {
+      $libraries['ckeditor']['dependencies'][] = 'claro/ckeditor-dialog';
+    }
+  }
+
+  if ($extension === 'core' && version_compare(Drupal::VERSION, '10.0.0', '<')) {
+
+    // Extend core/ckeditor with the claro/ckeditor-dialog library.
+    if (isset($libraries['ckeditor'])) {
+      $libraries['ckeditor']['dependencies'][] = 'claro/ckeditor-dialog';
+    }
+  }
+}
