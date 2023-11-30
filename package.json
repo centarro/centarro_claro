@@ -4,11 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "development": "mix",
-    "watch": "mix watch",
-    "watch-poll": "mix watch -- --watch-options-poll=1000",
-    "hot": "mix watch --hot",
-    "production": "mix --production"
+    "watch": "nodemon -e scss -x \"npm run build\"",
+    "css-compile": "sass --load-path=node_modules --style expanded --source-map --embed-sources --no-error-css scss/:css/",
+    "css-prefix": "postcss -u postcss-inline-svg autoprefixer -r 'css/**/*.css' --no-map",
+    "build": "npm-run-all css-compile css-prefix"
   },
   "keywords": [
     "admin theme",
@@ -21,10 +20,11 @@
   "license": "GPL-2.0",
   "devDependencies": {
     "cross-env": "^7.0.3",
-    "fs-extra": "^10.0.1",
-    "laravel-mix": "^6.0.43",
-    "node-sass": "^7.0.1",
-    "sass": "^1.49.9",
-    "sass-loader": "^12.6.0"
+    "autoprefixer": "10.4.16",
+    "nodemon": "^3.0.1",
+    "npm-run-all": "^4.1.5",
+    "postcss-inline-svg": "^6.0.0",
+    "postcss-cli": "^10.1.0",
+    "sass": "1.32.13"
   }
 }
