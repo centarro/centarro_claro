@@ -1,0 +1,10 @@
+# Theme size.
+# ----------------------------
+centarro_claro_theme_size: 'Medium'
+
+# Colors
+# ----------------------------
+centarro_claro_enable_color: false
+centarro_claro_color_scheme: 'default'
+centarro_claro_base_primary_color: '#4b4e9f'
+centarro_claro_focus_color: '#ffa827'

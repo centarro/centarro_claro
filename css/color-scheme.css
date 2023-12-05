@@ -1,0 +1,5 @@
+:root {
+  --color-primary: hsl(var(--color--primary-hue), var(--color--primary-saturation), var(--color--primary-lightness));
+  --color-primary-hover: color-mix(in srgb, var(--color-primary), #000 10%);
+  --color-blue-050: color-mix(in srgb, var(--color-primary), #FFF 90%);
+}

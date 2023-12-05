@@ -1,0 +1,9 @@
+//
+// Color picker
+// - these appear within theme settings when selecting a custom color.
+//
+
+[data-drupal-selector="centarro-claro-color-picker"] input[type="color"] {
+  margin-left: 0.8125rem;
+  vertical-align: bottom;
+}

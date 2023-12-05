@@ -26,6 +26,26 @@ function centarro_claro_preprocess_maintenance_page(&$variables) {
  *
  */
 function centarro_claro_preprocess_html(&$variables) {
+  // Change color theme
+  $display = theme_get_setting('centarro_claro_enable_color');
+  if ($display) {
+    $variables['#attached']['library'][] = 'centarro_claro/color-scheme';
+
+    // Convert custom hex to hsl so we can use the hue value
+    $primary_color_hex = theme_get_setting('centarro_claro_primary_color');
+    $focus_color = theme_get_setting('centarro_claro_focus_color');
+
+    if ($primary_color_hex) {
+      [$h, $s, $l] = _centarro_claro_hex_to_hsl($primary_color_hex);
+      $variables['html_attributes']->setAttribute('style',"
+        --color--primary-hue:$h;
+        --color--primary-saturation:$s%;
+        --color--primary-lightness:$l%;
+        --color-focus: $focus_color;
+      ");
+    }
+  }
+
   // Adjust Root font size
   $theme_size = theme_get_setting('theme_size');
   if ($theme_size) {
@@ -43,7 +63,11 @@ function centarro_claro_preprocess_html(&$variables) {
         break;
     }
 
-    $variables['html_attributes']->setAttribute('style', "--font-size-root:$root_font_size;");
+    if ($variables['html_attributes']->hasAttribute('style')) {
+      $variables['html_attributes']['style'] .= "--font-size-root:$root_font_size;";
+    } else {
+      $variables['html_attributes']->setAttribute('style', "--font-size-root:$root_font_size;");
+    }
   }
 }
 
@@ -78,4 +102,83 @@ function centarro_claro_library_info_alter(&$libraries, $extension)
       $libraries['ckeditor']['dependencies'][] = 'claro/ckeditor-dialog';
     }
   }
+}
+
+
+/**
+ * Converts hex color strings to array of HSL values.
+ *
+ * @param string $hex_string
+ *   The 6-character hexadecimal color code, optionally with a leading hash
+ *
+ * @return array
+ *   Array containing hue, saturation, and lightness values.
+ *   $hue: integer of value 0-360 indicating the hue on a color wheel.
+ *   $saturation: string of saturation as a percentage (0% all gray, 100% full color).
+ *   $lightness: string of lightness as a percentage (0% darkened to black, 50% full color, 100% lightened to white).
+ *
+ * @see https://css-tricks.com/converting-color-spaces-in-javascript
+ *   Code based on JS version.
+ * @see https://www.rapidtables.com/convert/color/rgb-to-hsl.html
+ *   Mathematical formula for rgb-to-hsl conversion.
+ *
+ * @internal
+ */
+function _centarro_claro_hex_to_hsl(string $hex_string) {
+  // Convert hexcode pairs to rgb values (0-255).
+  $hex_val = trim($hex_string, '#');
+  $r0 = hexdec($hex_val[0] . $hex_val[1]);
+  $g0 = hexdec($hex_val[2] . $hex_val[3]);
+  $b0 = hexdec($hex_val[4] . $hex_val[5]);
+
+  // Convert rgb's 0-255 to decimal values.
+  $r = fdiv($r0, 255);
+  $g = fdiv($g0, 255);
+  $b = fdiv($b0, 255);
+
+  // Calculate Hue.
+  $c_min = min($r, $g, $b);
+  $c_max = max($r, $g, $b);
+  $delta = $c_max - $c_min;
+
+  if ($delta == 0) {
+    $h = 0;
+  } else {
+    switch ($c_max) {
+      case $r:
+        $h = fmod((($g - $b) / $delta), 6);
+        break;
+
+      case $g:
+        $h = (($b - $r) / $delta) + 2;
+        break;
+
+      case $b:
+        $h = (($r - $g) / $delta) + 4;
+        break;
+
+      default:
+        $h = 0;
+        break;
+    }
+  }
+
+  $h = round($h * 60);
+
+  // Shift hue range from [-60 - 300] to [0 - 360].
+  if ($h < 0) {
+    $h += 360;
+  }
+
+  // Calculate Lightness.
+  $l = ($c_max + $c_min) / 2;
+
+  // Calculate Saturation.
+  $s = $delta == 0 ? 0 : $delta / (1 - abs((2 * $l) - 1));
+
+  // Convert Saturation and Lightness to percentages.
+  $s = round($s * 100);
+  $l = round($l * 100);
+
+  return [$h, $s, $l];
 }

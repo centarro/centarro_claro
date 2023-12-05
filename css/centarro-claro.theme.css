@@ -6,7 +6,7 @@
   --color-warning: #f28d4f;
   --color-danger: #ff4141;
   --color-primary-hover: #2c2f70;
-  --headings-color: #2c2f70;
+  --headings-color: var(--color-primary-hover);
   --headings-fw: bold;
   --color-absolutezero: var(--color-primary);
 }

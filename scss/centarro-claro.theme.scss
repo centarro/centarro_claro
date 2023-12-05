@@ -6,12 +6,11 @@
 
 // - State.
 $primary: #4b4e9f;
+$primary-hover: #2c2f70;
 $success: #00746b;
 $info: #72b5e4;
 $warning: #f28d4f;
 $danger: #ff4141;
-
-$primary-hover: #2c2f70;
 
 // Root CSS variables.
 :root {
@@ -24,7 +23,7 @@ $primary-hover: #2c2f70;
   --color-danger: #{$danger};
   --color-primary-hover: #{$primary-hover};
   // Headings
-  --headings-color: #{$primary-hover};
+  --headings-color: var(--color-primary-hover);
   --headings-fw: bold;
   // Claro overrides
   --color-absolutezero: var(--color-primary);
