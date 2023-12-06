@@ -4,36 +4,36 @@
   background-color: var(--color-primary);
   background-image: url("../images/spots.png");
   background-repeat: no-repeat;
-  background-size: 300px;
   background-position: right top 20px;
+  background-size: 300px;
 }
 .install-page .layout-container,
 .maintenance-page .layout-container {
-  width: 95% !important;
-  margin: 80px auto !important;
   position: relative;
   box-sizing: border-box;
+  width: 95% !important;
+  margin: 80px auto !important;
 }
 .install-page .layout-container .badge-logo,
 .maintenance-page .layout-container .badge-logo {
-  display: block;
   position: absolute;
-  transform: translate(-50%, 100%);
-  left: 50%;
   bottom: -50px;
+  left: 50%;
+  display: block;
+  transform: translate(-50%, 100%);
 }
 @media all and (min-width: 62rem) {
   .install-page .layout-container,
 .maintenance-page .layout-container {
     display: grid;
-    max-width: 68rem !important;
     grid-template-columns: minmax(300px, auto) 1fr;
+    max-width: 68rem !important;
     gap: 30px 60px;
   }
   .install-page .layout-container > header,
 .maintenance-page .layout-container > header {
-    width: auto;
     grid-column: span 2;
+    width: auto;
   }
   .install-page .layout-container > main,
 .maintenance-page .layout-container > main {

@@ -18,11 +18,11 @@
    */
   function announceFieldChange(changedInput) {
     const fieldTitle =
-      changedInput.parentElement.querySelector("label").innerText;
+      changedInput.parentElement.querySelector('label').innerText;
     const fieldValue = changedInput.value;
-    const announcement = Drupal.t("@fieldName has changed to @fieldValue", {
-      "@fieldName": fieldTitle,
-      "@fieldValue": fieldValue,
+    const announcement = Drupal.t('@fieldName has changed to @fieldValue', {
+      '@fieldName': fieldTitle,
+      '@fieldValue': fieldValue,
     });
     Drupal.announce(announcement);
   }
@@ -36,15 +36,21 @@
   function synchronizeInputs(changedInput, inputToSync) {
     inputToSync.value = changedInput.value;
 
-    changedInput.setAttribute("data-centarro-claro-custom-color", changedInput.value);
-    inputToSync.setAttribute("data-centarro-claro-custom-color", changedInput.value);
-
-    const colorSchemeSelect = document.querySelector(
-      '[data-drupal-selector="edit-color-scheme"]'
+    changedInput.setAttribute(
+      'data-centarro-claro-custom-color',
+      changedInput.value,
+    );
+    inputToSync.setAttribute(
+      'data-centarro-claro-custom-color',
+      changedInput.value,
     );
 
-    if (colorSchemeSelect.value !== "") {
-      colorSchemeSelect.value = "";
+    const colorSchemeSelect = document.querySelector(
+      '[data-drupal-selector="edit-color-scheme"]',
+    );
+
+    if (colorSchemeSelect.value !== '') {
+      colorSchemeSelect.value = '';
       announceFieldChange(colorSchemeSelect);
     }
   }
@@ -66,7 +72,7 @@
           .forEach((input) => {
             if (input.value !== color) {
               input.value = color;
-              if (input.type === "text") {
+              if (input.type === 'text') {
                 announceFieldChange(input);
               }
             }
@@ -76,7 +82,7 @@
       document
         .querySelectorAll(`input[data-centarro-claro-custom-color]`)
         .forEach((input) => {
-          input.value = input.getAttribute("data-centarro-claro-custom-color");
+          input.value = input.getAttribute('data-centarro-claro-custom-color');
         });
     }
   }
@@ -87,17 +93,17 @@
    * @param {HTMLSelectElement} selectElement div[data-drupal-selector="edit-color-scheme"]
    */
   function initColorSchemeSelect(selectElement) {
-    selectElement.closest('[style*="display:none;"]').style.display = "";
-    selectElement.addEventListener("change", setColorScheme);
+    selectElement.closest('[style*="display:none;"]').style.display = '';
+    selectElement.addEventListener('change', setColorScheme);
     Object.entries(colorSchemeOptions).forEach((option) => {
       const [key, values] = option;
 
-      const { label, colors } = values;
+      const { colors } = values;
 
       let allColorsMatch = true;
       Object.entries(colors).forEach(([colorName, colorHex]) => {
         const field = document.querySelector(
-          `input[type="text"][name="${colorName}"]`
+          `input[type="text"][name="${colorName}"]`,
         );
         if (field.value !== colorHex) {
           allColorsMatch = false;
@@ -120,21 +126,21 @@
    */
   function initColorPicker(textInput) {
     // Create input element.
-    const colorInput = document.createElement("input");
+    const colorInput = document.createElement('input');
 
     // Set new input's attributes.
-    colorInput.type = "color";
+    colorInput.type = 'color';
     colorInput.classList.add(
-      "form-color",
-      "form-element",
-      "form-element--type-color",
-      "form-element--api-color"
+      'form-color',
+      'form-element',
+      'form-element--type-color',
+      'form-element--api-color',
     );
     colorInput.value = textInput.value;
-    colorInput.setAttribute("name", `${textInput.name}_visual`);
+    colorInput.setAttribute('name', `${textInput.name}_visual`);
     colorInput.setAttribute(
-      "data-centarro-claro-custom-color",
-      textInput.getAttribute("data-centarro-claro-custom-color")
+      'data-centarro-claro-custom-color',
+      textInput.getAttribute('data-centarro-claro-custom-color'),
     );
 
     // Insert new input into DOM.
@@ -143,18 +149,18 @@
     // Make field label apply to textInput and colorInput.
     const fieldID = textInput.id;
     const label = document.querySelector(`label[for="${fieldID}"]`);
-    label.removeAttribute("for");
-    label.setAttribute("id", `${fieldID}-label`);
+    label.removeAttribute('for');
+    label.setAttribute('id', `${fieldID}-label`);
 
-    textInput.setAttribute("aria-labelledby", `${fieldID}-label`);
-    colorInput.setAttribute("aria-labelledby", `${fieldID}-label`);
+    textInput.setAttribute('aria-labelledby', `${fieldID}-label`);
+    colorInput.setAttribute('aria-labelledby', `${fieldID}-label`);
 
     // Add `input` event listener to keep inputs synchronized.
-    textInput.addEventListener("input", () => {
+    textInput.addEventListener('input', () => {
       synchronizeInputs(textInput, colorInput);
     });
 
-    colorInput.addEventListener("input", () => {
+    colorInput.addEventListener('input', () => {
       synchronizeInputs(colorInput, textInput);
     });
   }
@@ -169,8 +175,8 @@
   Drupal.behaviors.centarroClaroColorPicker = {
     attach: () => {
       const colorSchemeSelect = once(
-        "centarro-claro-color-picker",
-        '[data-drupal-selector="edit-centarro-claro-color-scheme"]'
+        'centarro-claro-color-picker',
+        '[data-drupal-selector="edit-centarro-claro-color-scheme"]',
       );
 
       colorSchemeSelect.forEach((selectElement) => {
@@ -178,8 +184,8 @@
       });
 
       const colorTextInputs = once(
-        "centarro-claro-color-picker",
-        '[data-drupal-selector="centarro-claro-color-picker"] input[type="text"]'
+        'centarro-claro-color-picker',
+        '[data-drupal-selector="centarro-claro-color-picker"] input[type="text"]',
       );
 
       colorTextInputs.forEach((textInput) => {

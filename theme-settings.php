@@ -138,7 +138,6 @@ function centarro_claro_form_system_theme_settings_alter(&$form, FormStateInterf
  * @param FormStateInterface $form_state
  * @return mixed
  */
-function colorCallback($form, FormStateInterface $form_state)
-{
+function colorCallback($form, FormStateInterface $form_state) {
   return $form['centarro_claro_utilities']['color_container'];
 }

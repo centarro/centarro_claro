@@ -1,19 +1,19 @@
-name: "Centarro Claro"
+name: 'Centarro Claro'
 type: theme
 base theme: claro
-description: "Admin theme based on Claro used for Centarro projects."
+description: 'Admin theme based on Claro used for Centarro projects.'
 core_version_requirement: ^9 || ^10
 
 regions:
-  header: "Header"
-  pre_content: "Pre-content"
+  header: 'Header'
+  pre_content: 'Pre-content'
   breadcrumb: Breadcrumb
   highlighted: Highlighted
   help: Help
   content: Content
-  page_top: "Page top"
-  page_bottom: "Page bottom"
-  sidebar_first: "First sidebar"
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+  sidebar_first: 'First sidebar'
 regions_hidden:
   - sidebar_first
 libraries:
@@ -103,7 +103,7 @@ libraries-override:
   views_ui/admin.styling:
     css:
       component:
-          css/views_ui.admin.css: css/components/views_ui.admin.css
+        css/views_ui.admin.css: css/components/views_ui.admin.css
       theme:
         css/views_ui.admin.theme.css: css/theme/views_ui.admin.theme.css
 

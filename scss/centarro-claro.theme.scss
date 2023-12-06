@@ -216,8 +216,8 @@ h6,
   }
 }
 
-.media-library-item--grid.is-hover:before,
-.media-library-item--grid.checked.is-hover:before {
+.media-library-item--grid.is-hover::before,
+.media-library-item--grid.checked.is-hover::before {
   border-color: var(--color-primary-hover);
 }
 
