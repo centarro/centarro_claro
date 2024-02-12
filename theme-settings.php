@@ -70,7 +70,7 @@ function centarro_claro_form_system_theme_settings_alter(&$form, FormStateInterf
     '#title' => t('Enable color Scheme'),
     '#default_value' => theme_get_setting('centarro_claro_enable_color'),
     '#ajax' => [
-      'callback' => 'colorCallback',
+      'callback' => 'centarroColorCallback',
       'wrapper' => 'color_container',
     ],
   ];
@@ -138,6 +138,6 @@ function centarro_claro_form_system_theme_settings_alter(&$form, FormStateInterf
  * @param FormStateInterface $form_state
  * @return mixed
  */
-function colorCallback($form, FormStateInterface $form_state) {
+function centarroColorCallback($form, FormStateInterface $form_state) {
   return $form['centarro_claro_utilities']['color_container'];
 }
