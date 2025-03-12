@@ -24,24 +24,24 @@
 }
 @media all and (min-width: 62rem) {
   .install-page .layout-container,
-.maintenance-page .layout-container {
+  .maintenance-page .layout-container {
     display: grid;
     grid-template-columns: minmax(300px, auto) 1fr;
     max-width: 68rem !important;
     gap: 30px 60px;
   }
   .install-page .layout-container > header,
-.maintenance-page .layout-container > header {
+  .maintenance-page .layout-container > header {
     grid-column: span 2;
     width: auto;
   }
   .install-page .layout-container > main,
-.maintenance-page .layout-container > main {
+  .maintenance-page .layout-container > main {
     width: 100%;
     padding: 0;
   }
   .install-page .layout-container > .layout-sidebar-first,
-.maintenance-page .layout-container > .layout-sidebar-first {
+  .maintenance-page .layout-container > .layout-sidebar-first {
     width: auto;
   }
 }
@@ -72,7 +72,7 @@
 }
 @media all and (min-width: 48em) {
   .install-page .task-list li,
-.maintenance-page .task-list li {
+  .maintenance-page .task-list li {
     padding: 0.5em 1em 0.5em 2em;
     font-size: var(--font-size-md);
   }
